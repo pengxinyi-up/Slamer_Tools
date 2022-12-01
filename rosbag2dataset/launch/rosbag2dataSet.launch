@@ -1,0 +1,33 @@
+<launch>
+    <!--ns表示在指定命名空间运行节点(可以理解为改rostopic list中的节点名称)，交互的节点间要在同一ns下，下面这俩必须在同ns下-->
+    <!-- pkg包名 type节点名 name自定义名 output输出方式 respawn起死回生 respawn_delay起死回生所需要的时间，默认0 -->
+    <node pkg="rosbag2dataset" type="rosbag2dataSet" name="rosbag2dataSet" output="screen"/>
+
+    <param name = "b_viewImage" type = "bool" value = "true" /> <!--是否显示图像，false 可以提高转换速度-->
+    <param name = "b_printData" type = "bool" value = "false" /> <!--打印stamp，imu_data-->
+	
+<!--rosbag路径-->
+    <param name = "path_bagfile" type = "string" value = "/media/pxy/Pxy_HardDisk/DataSET/LORIS/lifelong_dataset/cafe1-1_2-rosbag/uncompressed/cafe1-1.bag" />
+
+<!--数据输出路径-->
+    <param name = "pathOut_rootPath" type = "string" value = "/home/pxy/data/euroc/jinditianyi/data" />
+
+    <param name = "pathOut_image_left" type = "string" value = "/cam0/" />
+    <param name = "pathOut_image_right" type = "string" value = "/cam1/" />
+    <param name = "pathOut_imu_raw" type = "string" value = "/imu0/" />
+    <param name = "pathOut_wheel_odom" type = "string" value = "/wheel0/" />
+    <param name = "pathOut_scan" type = "string" value = "/scan0/" />
+    
+<!--待转换的话题
+    <param name = "topic_image_left" type = "string" value = "/mynteye/left/image_mono" />
+    <param name = "topic_image_right" type = "string" value = "/mynteye/right/image_mono" />
+    <param name = "topic_imu_raw" type = "string" value = "/mynteye/imu/data_raw" />
+    <param name = "topic_imu_raw_processed" type = "string" value = "/mynteye/imu/data_raw_processed" />
+    <param name = "topic_wheel_odom" type = "string" value = "/StereoInertial_node/wheel_odom" />
+    <param name = "topic_scan" type = "string" value = "/scan" />
+-->
+
+    <param name = "topic_image_left" type = "string" value = "/d400/color/image_raw" />
+
+</launch>
+
